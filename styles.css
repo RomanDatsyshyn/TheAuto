@@ -13,6 +13,14 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.card {
+  overflow: hidden;
+  margin-bottom: 1.78vw;
+}
+.card img {
+  width: 100%;
+  object-fit: cover;
+}
 .card-row {
   margin-top: 25px;
   display: flex;
@@ -21,11 +29,11 @@ body {
 }
 .card-category {
   text-transform: uppercase;
-  color: #aea69f;
+  color: #918984;
 }
 .card-slash {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
   font-weight: 700;
 }
 .card-date {
@@ -38,39 +46,30 @@ body {
   margin-top: 5px;
 }
 @media (min-width: 992px) {
+  .card-container {
+    max-width: 88vw;
+  }
   .card {
-    width: 26vw;
-    margin: 20px;
-    overflow: hidden;
+    width: 26.3vw;
   }
   .card img {
-    width: 100%;
     height: 16vw;
-    object-fit: cover;
   }
 }
 @media (min-width: 576px) and (max-width: 991.98px) {
   .card {
     width: 43vw;
-    margin: 20px;
-    overflow: hidden;
   }
   .card img {
-    width: 100%;
     height: 26vw;
-    object-fit: cover;
   }
 }
 @media (max-width: 575.98px) {
   .card {
     width: 90vw;
-    margin: 20px;
-    overflow: hidden;
   }
   .card img {
-    width: 100%;
     height: 50vw;
-    object-fit: cover;
   }
 }
 /* END CARD */
