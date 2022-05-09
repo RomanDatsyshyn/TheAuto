@@ -1,10 +1,12 @@
 :root {
   --green: #008000;
+  --blue: #4a5568;
+  --black: #000000;
 }
 body {
   margin: 0;
   display: flex;
-  color: #000;
+  color: var(--black);
   align-items: center;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +14,7 @@ body {
   font-family: "Roboto", sans-serif;
 }
 a {
-  color: #000;
+  color: var(--black);
   text-decoration: none;
 }
 header {
@@ -24,7 +26,25 @@ header {
   font-weight: 700;
 }
 header a:hover {
-  color: #4a5568;
+  color: var(--blue);
+}
+.searchContainer {
+  position: relative;
+  border-radius: 5px;
+}
+.searchContainer input {
+  width: 26.3vw;
+  height: 50px;
+  font-size: 1.5vw;
+  margin-bottom: 3vw;
+}
+.searchContainer input:focus {
+  outline-color: var(--blue);
+}
+.searchContainer img {
+  position: absolute;
+  right: 0.5vw;
+  top: 0.3vw;
 }
 .card-container {
   display: flex;
@@ -32,13 +52,14 @@ header a:hover {
   justify-content: space-evenly;
 }
 .card {
-  color: #000;
+  color: var(--black);
   overflow: hidden;
   margin-bottom: 1.78vw;
 }
 .card img {
   width: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 .card img:hover {
   opacity: 0.9;
@@ -83,6 +104,9 @@ header a:hover {
     font-size: 2.5vw;
   }
   .searchIcon {
+    width: 2.5vw;
+  }
+  .searchContainer img {
     width: 2.5vw;
   }
   .card-container {
