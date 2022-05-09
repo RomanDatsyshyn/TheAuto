@@ -1,3 +1,6 @@
+:root {
+  --green: #008000;
+}
 body {
   margin: 0;
   display: flex;
@@ -22,12 +25,12 @@ a {
   overflow: hidden;
   margin-bottom: 1.78vw;
 }
-.card:hover h4 {
-  color: #008000;
-}
 .card img {
   width: 100%;
   object-fit: cover;
+}
+.card img:hover {
+  opacity: 0.9;
 }
 .card-row {
   display: flex;
@@ -40,8 +43,9 @@ a {
   letter-spacing: 1px;
   text-transform: capitalize;
 }
-.card-category:hover {
-  color: #899878;
+.card-category:hover,
+.card h4:hover {
+  color: var(--green);
 }
 .card-slash {
   font-weight: 700;
@@ -85,7 +89,7 @@ a {
 }
 @media (max-width: 575.98px) {
   .card {
-    width: 90vw;
+    width: 92vw;
   }
   .card img {
     height: 50vw;
