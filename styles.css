@@ -6,6 +6,7 @@ body {
   display: flex;
   color: #000;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   background-color: #fff;
   font-family: "Roboto", sans-serif;
@@ -14,7 +15,17 @@ a {
   color: #000;
   text-decoration: none;
 }
-/* CARD */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-weight: 700;
+}
+header a:hover {
+  color: #4a5568;
+}
 .card-container {
   display: flex;
   flex-wrap: wrap;
@@ -61,6 +72,19 @@ a {
   margin-top: 0.29vw;
 }
 @media (min-width: 992px) {
+  header {
+    width: 22vw;
+    padding: 1.78vw 0;
+  }
+  .menuIcon {
+    width: 2.5vw;
+  }
+  .logo {
+    font-size: 2.5vw;
+  }
+  .searchIcon {
+    width: 2.5vw;
+  }
   .card-container {
     max-width: 88vw;
   }
@@ -76,6 +100,19 @@ a {
   }
 }
 @media (min-width: 576px) and (max-width: 991.98px) {
+  header {
+    width: 88vw;
+    padding: 1.78vw 0 5vw 0;
+  }
+  .menuIcon {
+    width: 5vw;
+  }
+  .logo {
+    font-size: 5vw;
+  }
+  .searchIcon {
+    width: 5vw;
+  }
   .card {
     width: 43vw;
   }
@@ -88,6 +125,19 @@ a {
   }
 }
 @media (max-width: 575.98px) {
+  header {
+    width: 90vw;
+    padding: 1.78vw 0 5vw 0;
+  }
+  .menuIcon {
+    width: 10vw;
+  }
+  .logo {
+    font-size: 10vw;
+  }
+  .searchIcon {
+    width: 10vw;
+  }
   .card {
     width: 92vw;
   }
@@ -99,4 +149,3 @@ a {
     margin-right: 1.5vw;
   }
 }
-/* END CARD */
