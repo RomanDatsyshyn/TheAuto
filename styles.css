@@ -7,6 +7,10 @@ body {
   background-color: #fff;
   font-family: "Roboto", sans-serif;
 }
+a {
+  color: #000;
+  text-decoration: none;
+}
 /* CARD */
 .card-container {
   display: flex;
@@ -14,24 +18,30 @@ body {
   justify-content: space-evenly;
 }
 .card {
+  color: #000;
   overflow: hidden;
   margin-bottom: 1.78vw;
+}
+.card:hover h4 {
+  color: #008000;
 }
 .card img {
   width: 100%;
   object-fit: cover;
 }
 .card-row {
-  margin-top: 1.48vw;
   display: flex;
   flex-wrap: wrap;
-  font-size: clamp(0.675rem, 5vw, 0.875rem);
   font-weight: 500;
+  margin-top: 1.48vw;
+  font-size: clamp(0.675rem, 5vw, 0.875rem);
 }
 .card-category {
-  text-transform: uppercase;
   letter-spacing: 1px;
-  color: Green;
+  text-transform: capitalize;
+}
+.card-category:hover {
+  color: #899878;
 }
 .card-slash {
   font-weight: 700;
