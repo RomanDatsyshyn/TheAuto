@@ -3,6 +3,7 @@
   --blue: #4a5568;
   --black: #000000;
   --white: #ffffff;
+  --grey: #f1f1f1;
 }
 body {
   margin: 0;
@@ -51,9 +52,6 @@ nav a:hover {
 .logo {
   font-weight: 700;
 }
-header a:hover {
-  color: var(--blue);
-}
 .searchContainer {
   border-radius: 5px;
   border: 2px solid var(--blue);
@@ -75,6 +73,27 @@ header a:hover {
   height: 80%;
   border: 0;
   outline: 0;
+}
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1vw;
+  position: relative;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--grey);
+}
+.heading {
+  position: absolute;
+  color: var(--blue);
+  padding: 0 2.5vw;
+  font-size: clamp(0.675rem, 5vw, 0.875rem);
+  text-transform: uppercase;
+  background-color: var(--white);
 }
 .card-container {
   display: flex;
@@ -159,6 +178,10 @@ header a:hover {
   .searchContainer img {
     width: 2.5vw;
   }
+  .titleContainer {
+    width: 83.5vw;
+    margin-bottom: 1.78vw;
+  }
   .card-container {
     max-width: 88vw;
   }
@@ -206,6 +229,10 @@ header a:hover {
   .headerIcon {
     width: 5vw;
   }
+  .titleContainer {
+    width: 90.5vw;
+    margin-bottom: 4.78vw;
+  }
   .card {
     width: 43vw;
   }
@@ -250,6 +277,10 @@ header a:hover {
   }
   .searchIcon {
     width: 10vw;
+  }
+  .titleContainer {
+    width: 90.5vw;
+    margin-bottom: 8vw;
   }
   .card {
     width: 92vw;
