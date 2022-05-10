@@ -24,6 +24,12 @@ header {
   align-items: center;
   justify-content: space-between;
 }
+header img {
+  cursor: pointer;
+}
+header img:hover {
+  opacity: 0.6;
+}
 nav {
   margin-bottom: 1.22vw;
   display: flex;
