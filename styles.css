@@ -1,5 +1,5 @@
 :root {
-  --green: #008000;
+  --green: #56927f;
   --blue: #4a5568;
   --black: #000000;
   --white: #ffffff;
@@ -100,10 +100,10 @@ nav a:hover,
   background-color: var(--grey);
 }
 .heading {
+  font-size: 16px;
   position: absolute;
   color: var(--blue);
   padding: 0 2.5vw;
-  font-size: clamp(0.675rem, 5vw, 0.875rem);
   text-transform: uppercase;
   background-color: var(--white);
 }
@@ -131,7 +131,6 @@ nav a:hover,
   font-weight: 500;
   margin-top: 1.48vw;
   color: var(--blue);
-  font-size: clamp(0.675rem, 5vw, 0.875rem);
 }
 .card-category {
   color: var(--blue);
@@ -152,7 +151,6 @@ nav a:hover,
   letter-spacing: 1px;
 }
 .card h4 {
-  font-size: clamp(0.675rem, 10vw, 1.42rem);
   line-height: 1.4;
   font-weight: 500;
   margin-top: 0.29vw;
@@ -200,7 +198,7 @@ footer {
   .showMoreText {
     width: 23%;
     height: 5vw;
-    font-size: clamp(0.675rem, 10vw, 1.2rem);
+    font-size: 18px;
   }
   .searchContainer {
     width: 26.15vw;
@@ -236,6 +234,12 @@ footer {
     margin-left: 0.75vw;
     margin-right: 0.75vw;
   }
+  .card-row {
+    font-size: 18px;
+  }
+  .card h4 {
+    font-size: 24px;
+  }
 }
 @media (min-width: 576px) and (max-width: 991.98px) {
   header {
@@ -256,7 +260,7 @@ footer {
   .showMoreText {
     width: 43vw;
     height: 5vw;
-    font-size: clamp(0.675rem, 10vw, 1.1rem);
+    font-size: 19.2px;
   }
   .searchContainer {
     width: 90.5vw;
@@ -289,6 +293,12 @@ footer {
   .footerLine {
     width: 90.5vw;
   }
+  .card-row {
+    font-size: 19.2px;
+  }
+  .card h4 {
+    font-size: 25.2px;
+  }
 }
 @media (max-width: 575.98px) {
   header {
@@ -310,7 +320,7 @@ footer {
   .showMoreText {
     width: 100%;
     height: 10vw;
-    font-size: clamp(0.675rem, 10vw, 1.1rem);
+    font-size: 21.6px;
   }
   .headerIcon {
     width: 10vw;
@@ -342,5 +352,11 @@ footer {
   }
   .footerLine {
     width: 91.5vw;
+  }
+  .card-row {
+    font-size: 15.6px;
+  }
+  .card h4 {
+    font-size: 21.6px;
   }
 }
