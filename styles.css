@@ -29,22 +29,26 @@ header a:hover {
   color: var(--blue);
 }
 .searchContainer {
-  position: relative;
   border-radius: 5px;
-}
-.searchContainer input {
-  width: 26.3vw;
-  height: 50px;
-  font-size: 1.5vw;
+  border: 2px solid var(--blue);
   margin-bottom: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.searchContainer input:focus {
-  outline-color: var(--blue);
+.searchRow {
+  display: flex;
+  width: 97%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.searchContainer img {
-  position: absolute;
-  right: 0.5vw;
-  top: 0.3vw;
+.searchRow input {
+  width: 87%;
+  height: 80%;
+  border: 0;
+  outline: 0;
 }
 .card-container {
   display: flex;
@@ -103,7 +107,18 @@ header a:hover {
   .logo {
     font-size: 2.5vw;
   }
+  .searchContainer {
+    width: 26.15vw;
+    height: 2.97vw;
+  }
+  .searchRow input {
+    width: 87%;
+    font-size: 1.5vw;
+  }
   .searchIcon {
+    width: 2.5vw;
+  }
+  .headerIcon {
     width: 2.5vw;
   }
   .searchContainer img {
@@ -134,7 +149,18 @@ header a:hover {
   .logo {
     font-size: 5vw;
   }
+  .searchContainer {
+    width: 90.5vw;
+    height: 6vw;
+  }
+  .searchRow input {
+    width: 95%;
+    font-size: 3.5vw;
+  }
   .searchIcon {
+    width: 5vw;
+  }
+  .headerIcon {
     width: 5vw;
   }
   .card {
@@ -158,6 +184,17 @@ header a:hover {
   }
   .logo {
     font-size: 10vw;
+  }
+  .headerIcon {
+    width: 10vw;
+  }
+  .searchContainer {
+    width: 91.5vw;
+    height: 10vw;
+  }
+  .searchRow input {
+    width: 95%;
+    font-size: 5.5vw;
   }
   .searchIcon {
     width: 10vw;
