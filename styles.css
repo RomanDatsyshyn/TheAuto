@@ -4,6 +4,7 @@
   --black: #000000;
   --white: #ffffff;
   --grey: #f1f1f1;
+  --simpleTextColor: #454545;
 }
 body {
   margin: 0;
@@ -178,7 +179,21 @@ footer {
   background-color: var(--grey);
   margin-bottom: 1.78vw;
 }
+h1 {
+  margin: 0 0 2vw 0;
+  font-size: 36px;
+}
+.content {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--simpleTextColor);
+  margin-bottom: 1.78vw;
+}
 @media (min-width: 992px) {
+  main {
+    width: 51vw;
+  }
   header {
     width: 22vw;
     padding: 1.78vw 0;
@@ -243,6 +258,9 @@ footer {
   }
 }
 @media (min-width: 576px) and (max-width: 991.98px) {
+  main {
+    width: 88vw;
+  }
   header {
     width: 88vw;
     padding: 1.78vw 0;
@@ -302,6 +320,9 @@ footer {
   }
 }
 @media (max-width: 575.98px) {
+  main {
+    width: 90vw;
+  }
   header {
     width: 90vw;
     padding: 1.78vw 0;
