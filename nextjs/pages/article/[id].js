@@ -38,6 +38,7 @@ export default function Article({ article: serverArticle }) {
   );
 }
 
+// Відловлюємо і на фронті і на беці
 Article.getInitialProps = async ({ query, req }) => {
   if (!req) {
     return { article: null };
@@ -50,3 +51,13 @@ Article.getInitialProps = async ({ query, req }) => {
 
   return { article };
 };
+
+// Відловлюємо тільки на беці
+// export async function getServerSideProps({ query, req }) {
+//   const response = await fetch(
+//     `http://localhost:1337/api/articles/${query.id}`
+//   );
+//   const article = await response.json();
+
+//   return { props: { article } };
+// }
