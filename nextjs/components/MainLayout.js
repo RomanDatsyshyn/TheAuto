@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 export function MainLayout({ children, title = "" }) {
   return (
@@ -6,10 +8,9 @@ export function MainLayout({ children, title = "" }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <nav>
-        <h1>Navigation</h1>
-      </nav>
+      <Header />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }

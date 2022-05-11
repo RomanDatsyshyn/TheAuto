@@ -1,23 +1,24 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { MainLayout } from "../components/MainLayout";
-import { useRouter } from "next/router";
+import { ArticlesSection } from "../components/ArticlesSection";
 
-export default function Home({ articles: serverArticles }) {
-  const [articles, setArticles] = useState(serverArticles);
-  const router = useRouter();
+export default function Home({ categories: serverCategories }) {
+  const [categories, setCategories] = useState(serverCategories);
 
   useEffect(() => {
     async function load() {
-      const response = await fetch(`http://localhost:1337/api/articles/`);
+      const response = await fetch(
+        `http://localhost:1337/api/categories?populate[articles][populate][0]=preview&fields=name`
+      );
       const data = await response.json();
-      setArticles(data);
+      setCategories(data);
     }
 
-    if (!serverArticles) load();
+    if (!serverCategories) load();
   }, []);
 
-  if (!articles) {
+  if (!categories) {
     return (
       <MainLayout>
         <a>Loading ...</a>
@@ -26,9 +27,19 @@ export default function Home({ articles: serverArticles }) {
   }
 
   return (
-    <>
-      <MainLayout title={"Home"}>
-        <h1>Home</h1>
+    <MainLayout title={"Home"}>
+      {categories.data.map((category, index) => {
+        const { name, articles } = category.attributes;
+        return (
+          <ArticlesSection
+            categoryName={name}
+            articles={articles}
+            key={index}
+          />
+        );
+      })}
+
+      {/* <h1>Home</h1>
         <p>
           <Link href={"/about"}>
             <a>About</a>
@@ -49,19 +60,20 @@ export default function Home({ articles: serverArticles }) {
               </Link>
             );
           })}
-        </div>
-      </MainLayout>
-    </>
+        </div> */}
+    </MainLayout>
   );
 }
 
 Home.getInitialProps = async ({ req }) => {
   if (!req) {
-    return { articles: null };
+    return { categories: null };
   }
 
-  const response = await fetch("http://localhost:1337/api/articles");
-  const articles = await response.json();
+  const response = await fetch(
+    `http://localhost:1337/api/categories?populate[articles][populate][0]=preview&fields=name`
+  );
+  const categories = await response.json();
 
-  return { articles };
+  return { categories };
 };

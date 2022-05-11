@@ -191,7 +191,7 @@ h1 {
   margin-bottom: 1.78vw;
 }
 @media (min-width: 992px) {
-  main {
+  .main {
     width: 51vw;
   }
   header {
@@ -258,7 +258,7 @@ h1 {
   }
 }
 @media (min-width: 576px) and (max-width: 991.98px) {
-  main {
+  .main {
     width: 88vw;
   }
   header {
@@ -320,7 +320,7 @@ h1 {
   }
 }
 @media (max-width: 575.98px) {
-  main {
+  .main {
     width: 90vw;
   }
   header {

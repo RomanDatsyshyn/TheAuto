@@ -1,0 +1,39 @@
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 1vw;
+  position: relative;
+}
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--grey);
+}
+.heading {
+  font-size: 16px;
+  position: absolute;
+  color: var(--blue);
+  padding: 0 2.5vw;
+  text-transform: uppercase;
+  background-color: var(--white);
+}
+@media (min-width: 992px) {
+  .titleContainer {
+    width: 83.5vw;
+    margin-bottom: 1.78vw;
+  }
+}
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .titleContainer {
+    width: 90.5vw;
+    margin-bottom: 4.78vw;
+  }
+}
+@media (max-width: 575.98px) {
+  .titleContainer {
+    width: 90.5vw;
+    margin-bottom: 8vw;
+  }
+}

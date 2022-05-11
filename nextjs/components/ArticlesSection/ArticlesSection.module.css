@@ -1,0 +1,11 @@
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+@media (min-width: 992px) {
+  .cardContainer {
+    min-width: 88vw;
+    max-width: 88vw;
+  }
+}

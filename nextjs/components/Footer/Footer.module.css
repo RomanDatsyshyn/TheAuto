@@ -1,0 +1,32 @@
+.footerContainer a {
+  color: var(--blue);
+  margin: 0 0.3vw;
+}
+.footerContainer a:hover {
+  opacity: 0.6;
+}
+.copyright {
+  color: var(--blue);
+  margin-top: 0.5vw;
+}
+.footerLine {
+  height: 1px;
+  background-color: var(--grey);
+  margin-bottom: 1.78vw;
+}
+
+@media (min-width: 992px) {
+  .footerLine {
+    width: 83.5vw;
+  }
+}
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .footerLine {
+    width: 90.5vw;
+  }
+}
+@media (max-width: 575.98px) {
+  .footerLine {
+    width: 91.5vw;
+  }
+}
