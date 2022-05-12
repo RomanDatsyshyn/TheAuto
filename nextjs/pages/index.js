@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useState, useEffect } from "react";
 import { MainLayout } from "../components/MainLayout";
 import { ArticlesSection } from "../components/ArticlesSection";
@@ -34,18 +33,13 @@ export default function Home({ categories: serverCategories }) {
           <ArticlesSection
             categoryName={name}
             articles={articles}
+            categoryId={category.id}
             key={index}
           />
         );
       })}
 
-      {/* <h1>Home</h1>
-        <p>
-          <Link href={"/about"}>
-            <a>About</a>
-          </Link>
-        </p>
-        <p>
+      {/*
           <Link href={"/article/777"}>
             <a>Article</a>
           </Link>

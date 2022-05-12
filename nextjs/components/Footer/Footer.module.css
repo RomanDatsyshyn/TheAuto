@@ -14,7 +14,6 @@
   background-color: var(--grey);
   margin-bottom: 1.78vw;
 }
-
 @media (min-width: 992px) {
   .footerLine {
     width: 83.5vw;

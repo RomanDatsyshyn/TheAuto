@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState } from "react";
 import styles from "./Header.module.css";
 
@@ -14,10 +15,9 @@ export function Header() {
           alt={isShowMenu ? "close icon" : "menu icon"}
           onClick={() => setIsShowMenu(!isShowMenu)}
         />
-        {/* <img src="/close.svg" className={styles.headerIcon} alt="close icon" /> */}
-        <a href="#" className={styles.logo}>
-          TheAuto
-        </a>
+        <Link href={"/"}>
+          <a className={styles.logo}>TheAuto</a>
+        </Link>
         <img
           src={isShowSearch ? "/close.svg" : "/search.svg"}
           className={styles.headerIcon}

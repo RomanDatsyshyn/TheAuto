@@ -3,7 +3,11 @@ import { Heading } from "../Heading";
 import { ShowMoreButton } from "../ShowMoreButton";
 import { ArticleItem } from "../ArticleItem";
 
-export function ArticlesSection({ categoryName = "", articles = [] }) {
+export function ArticlesSection({
+  categoryName = "",
+  articles = [],
+  categoryId = 0,
+}) {
   return (
     <div className={styles.center}>
       <Heading title={categoryName} />
@@ -51,7 +55,7 @@ export function ArticlesSection({ categoryName = "", articles = [] }) {
           );
         })}
       </div>
-      <ShowMoreButton />
+      <ShowMoreButton id={categoryId} />
     </div>
   );
 }
