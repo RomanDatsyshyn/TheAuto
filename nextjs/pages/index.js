@@ -38,23 +38,6 @@ export default function Home({ categories: serverCategories }) {
           />
         );
       })}
-
-      {/*
-          <Link href={"/article/777"}>
-            <a>Article</a>
-          </Link>
-        </p>
-        <div>
-          {articles.data.map((i, key) => {
-            return (
-              <Link href={"/article/[id]"} as={`/article/${i.id}`}>
-                <a>
-                  <h3 key={key}>{i.attributes.title}</h3>
-                </a>
-              </Link>
-            );
-          })}
-        </div> */}
     </MainLayout>
   );
 }
