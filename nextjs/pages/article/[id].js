@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MainLayout } from "../../components/MainLayout";
 import { useRouter } from "next/router";
+import styles from "./Article.module.css";
 
 export default function Article({ article: serverArticle }) {
   const [article, setArticle] = useState(serverArticle);
@@ -28,12 +29,14 @@ export default function Article({ article: serverArticle }) {
   }
 
   return (
-    <MainLayout>
+    <MainLayout title={article.data.attributes.title}>
       <Link href={"/"}>
         <a>Back to Home</a>
       </Link>
-      <h1>{article.data.attributes.title}</h1>
-      <div>{article.data.attributes.content}</div>
+      <div className={styles.main}>
+        <h1>{article.data.attributes.title}</h1>
+        <div className={styles.content}>{article.data.attributes.content}</div>
+      </div>
     </MainLayout>
   );
 }

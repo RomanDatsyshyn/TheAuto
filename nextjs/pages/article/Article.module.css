@@ -1,0 +1,23 @@
+.content {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.7;
+  color: var(--simpleTextColor);
+  margin-bottom: 1.78vw;
+}
+
+@media (min-width: 992px) {
+  .main {
+    width: 51vw;
+  }
+}
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .main {
+    width: 88vw;
+  }
+}
+@media (max-width: 575.98px) {
+  .main {
+    width: 90vw;
+  }
+}
