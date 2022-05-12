@@ -5,7 +5,6 @@
   color: var(--simpleTextColor);
   margin-bottom: 1.78vw;
 }
-
 @media (min-width: 992px) {
   .main {
     width: 51vw;

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MainLayout } from "../../components/MainLayout";
 import { ArticlesContainer } from "../../components/ArticlesContainer";
 import { useRouter } from "next/router";
+import { LoadingLayout } from "../../components/LoadingLayout";
 
 export default function Category({ articles: serverArticles }) {
   const [articles, setArticles] = useState(serverArticles);
@@ -21,11 +22,7 @@ export default function Category({ articles: serverArticles }) {
   }, []);
 
   if (!articles) {
-    return (
-      <MainLayout>
-        <a>Loading ...</a>
-      </MainLayout>
-    );
+    return <LoadingLayout title={"Category"} />;
   }
 
   return (

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { MainLayout } from "../components/MainLayout";
 import { ArticlesSection } from "../components/ArticlesSection";
+import { LoadingLayout } from "../components/LoadingLayout";
 
 export default function Home({ categories: serverCategories }) {
   const [categories, setCategories] = useState(serverCategories);
@@ -18,11 +19,7 @@ export default function Home({ categories: serverCategories }) {
   }, []);
 
   if (!categories) {
-    return (
-      <MainLayout>
-        <a>Loading ...</a>
-      </MainLayout>
-    );
+    return <LoadingLayout title={"Home"} />;
   }
 
   return (

@@ -1,0 +1,22 @@
+.loader {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .loader img {
+    width: 8vw;
+  }
+}
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .loader img {
+    width: 16vw;
+  }
+}
+@media (max-width: 575.98px) {
+  .loader img {
+    width: 24vw;
+  }
+}

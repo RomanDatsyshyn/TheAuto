@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MainLayout } from "../../components/MainLayout";
+import { LoadingLayout } from "../../components/LoadingLayout";
 import { useRouter } from "next/router";
 import styles from "./Article.module.css";
 
@@ -21,11 +22,7 @@ export default function Article({ article: serverArticle }) {
   }, []);
 
   if (!article) {
-    return (
-      <MainLayout>
-        <a>Loading ...</a>
-      </MainLayout>
-    );
+    return <LoadingLayout title={article.data.attributes.title} />;
   }
 
   return (
