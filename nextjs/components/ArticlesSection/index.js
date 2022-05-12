@@ -5,7 +5,7 @@ import { ArticleItem } from "../ArticleItem";
 
 export function ArticlesSection({ categoryName = "", articles = [] }) {
   return (
-    <>
+    <div className={styles.center}>
       <Heading title={categoryName} />
       <div className={styles.cardContainer}>
         {articles.data.map((article, index) => {
@@ -52,6 +52,6 @@ export function ArticlesSection({ categoryName = "", articles = [] }) {
         })}
       </div>
       <ShowMoreButton />
-    </>
+    </div>
   );
 }

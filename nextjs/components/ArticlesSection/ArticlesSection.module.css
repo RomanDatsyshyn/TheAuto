@@ -3,6 +3,12 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
 @media (min-width: 992px) {
   .cardContainer {
     min-width: 88vw;
