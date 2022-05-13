@@ -1,6 +1,13 @@
 import styles from "./ArticleItem.module.css";
+import Link from "next/link";
 
-export function ArticleItem({ title, categoryName, url, updatedAt }) {
+export function ArticleItem({
+  title,
+  categoryName,
+  url,
+  updatedAt,
+  categoryId,
+}) {
   const getDateFormat = () => {
     const date = new Date(updatedAt);
     const itemYear = date.getFullYear();
@@ -22,9 +29,9 @@ export function ArticleItem({ title, categoryName, url, updatedAt }) {
       <div className={styles.cardRow}>
         <span className={styles.cardDate}>{getDateFormat()}</span>
         <span className={styles.cardSlash}>/</span>
-        <a href="#2" className={styles.cardCategory}>
-          {categoryName}
-        </a>
+        <Link href={"/category/[id]"} as={`/category/${categoryId}`}>
+          <a className={styles.cardCategory}>{categoryName}</a>
+        </Link>
       </div>
       <a href="#3">
         <h4>{title}</h4>

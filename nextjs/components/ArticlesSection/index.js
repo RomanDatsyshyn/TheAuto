@@ -12,43 +12,19 @@ export function ArticlesSection({
     <div className={styles.center}>
       <Heading title={categoryName} />
       <div className={styles.cardContainer}>
-        {articles.data.map((article, index) => {
-          const { title, updatedAt, preview } = article.attributes;
+        {articles.map((article, index) => {
+          const { title, updatedAt, preview, categories } = article.attributes;
           const { url } = preview.data.attributes;
+
+          const { data } = categories;
+          const { identificator, name } = data[0].attributes;
 
           return (
             <ArticleItem
               title={title}
               updatedAt={updatedAt}
-              categoryName={categoryName}
-              url={url}
-              key={index}
-            />
-          );
-        })}
-        {articles.data.map((article, index) => {
-          const { title, updatedAt, preview } = article.attributes;
-          const { url } = preview.data.attributes;
-
-          return (
-            <ArticleItem
-              title={title}
-              updatedAt={updatedAt}
-              categoryName={categoryName}
-              url={url}
-              key={index}
-            />
-          );
-        })}
-        {articles.data.map((article, index) => {
-          const { title, updatedAt, preview } = article.attributes;
-          const { url } = preview.data.attributes;
-
-          return (
-            <ArticleItem
-              title={title}
-              updatedAt={updatedAt}
-              categoryName={categoryName}
+              categoryName={name}
+              categoryId={identificator}
               url={url}
               key={index}
             />

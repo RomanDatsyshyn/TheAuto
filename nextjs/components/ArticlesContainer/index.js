@@ -9,14 +9,18 @@ export function ArticlesContainer({ articles = [], title = "" }) {
       <Heading titile={title} />
       <div className={styles.cardContainer}>
         {articles.data.map((article, index) => {
-          const { title, updatedAt, preview } = article.attributes;
+          const { title, updatedAt, preview, categories } = article.attributes;
           const { url } = preview.data.attributes;
+
+          const { data } = categories;
+          const { identificator, name } = data[0].attributes;
 
           return (
             <ArticleItem
               title={title}
               updatedAt={updatedAt}
-              categoryName={"categoryName"}
+              categoryName={name}
+              categoryId={identificator}
               url={url}
               key={index}
             />
