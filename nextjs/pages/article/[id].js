@@ -21,9 +21,7 @@ export default function Article({ article: serverArticle }) {
     if (!serverArticle) load();
   }, []);
 
-  if (!article) {
-    return <LoadingLayout title={article.data[0].attributes.title} />;
-  }
+  if (!article) return <LoadingLayout title={"Loading"} />;
 
   return (
     <MainLayout title={article.data[0].attributes.title}>
