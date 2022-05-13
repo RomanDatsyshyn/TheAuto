@@ -14,7 +14,7 @@ export default function All({
 
   useEffect(() => {
     async function load() {
-      const url = `http://localhost:1337/api/articles?fields=title,url,updatedAt&populate=preview,categories&sort=id:desc&pagination[page]=${page}&pagination[pageSize]=2`;
+      const url = `http://localhost:1337/api/articles?fields=title,url,updatedAt&populate=preview,categories&sort=id:desc&pagination[page]=${page}&pagination[pageSize]=3`;
       const response = await fetch(url);
       const data = await response.json();
 
@@ -62,7 +62,7 @@ export default function All({
 All.getInitialProps = async ({ req }) => {
   if (!req) return { articles: null };
 
-  const url = `http://localhost:1337/api/articles?fields=title,url,updatedAt&populate=preview,categories&sort=id:desc&pagination[page]=1&pagination[pageSize]=2`;
+  const url = `http://localhost:1337/api/articles?fields=title,url,updatedAt&populate=preview,categories&sort=id:desc&pagination[page]=1&pagination[pageSize]=3`;
   const response = await fetch(url);
   const articles = await response.json();
 

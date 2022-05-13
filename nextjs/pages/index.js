@@ -41,17 +41,19 @@ export default function Home({
   return (
     <MainLayout title={"Home"} menuCategories={menuCategories}>
       <LastAddedSection articles={lastAdded.data.slice(0, 3)} />
-      {categories.data.map((category, index) => {
-        const { name, articles, identificator } = category.attributes;
-        return (
-          <ArticlesSection
-            categoryName={name}
-            categoryId={identificator}
-            articles={articles.data.slice(0, 3)}
-            key={index}
-          />
-        );
-      })}
+      {categories &&
+        categories.data &&
+        categories.data.map((category, index) => {
+          const { name, articles, identificator } = category.attributes;
+          return (
+            <ArticlesSection
+              categoryName={name}
+              categoryId={identificator}
+              articles={articles.data.slice(0, 3)}
+              key={index}
+            />
+          );
+        })}
     </MainLayout>
   );
 }
