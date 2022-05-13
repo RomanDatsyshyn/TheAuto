@@ -22,6 +22,11 @@
       "relation": "manyToMany",
       "target": "api::article.article",
       "inversedBy": "categories"
+    },
+    "identificator": {
+      "type": "string",
+      "unique": true,
+      "required": true
     }
   }
 }

@@ -6,7 +6,7 @@ import { ArticleItem } from "../ArticleItem";
 export function ArticlesSection({
   categoryName = "",
   articles = [],
-  categoryId = 0,
+  categoryId,
 }) {
   return (
     <div className={styles.center}>

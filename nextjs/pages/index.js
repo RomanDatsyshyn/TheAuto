@@ -9,7 +9,7 @@ export default function Home({ categories: serverCategories }) {
   useEffect(() => {
     async function load() {
       const response = await fetch(
-        `http://localhost:1337/api/categories?populate[articles][populate][0]=preview&fields=name`
+        `http://localhost:1337/api/categories?populate[articles][populate][0]=preview&fields=name,identificator`
       );
       const data = await response.json();
       setCategories(data);
@@ -25,12 +25,13 @@ export default function Home({ categories: serverCategories }) {
   return (
     <MainLayout title={"Home"}>
       {categories.data.map((category, index) => {
-        const { name, articles } = category.attributes;
+        const { name, articles, identificator } = category.attributes;
+        console.log(identificator, "identificator");
         return (
           <ArticlesSection
             categoryName={name}
             articles={articles}
-            categoryId={category.id}
+            categoryId={identificator}
             key={index}
           />
         );
@@ -45,7 +46,7 @@ Home.getInitialProps = async ({ req }) => {
   }
 
   const response = await fetch(
-    `http://localhost:1337/api/categories?populate[articles][populate][0]=preview&fields=name`
+    `http://localhost:1337/api/categories?populate[articles][populate][0]=preview&fields=name,identificator`
   );
   const categories = await response.json();
 
