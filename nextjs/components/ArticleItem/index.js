@@ -25,9 +25,15 @@ export function ArticleItem({
 
   return (
     <div className={styles.card}>
-      <a href="#1">
-        <img src={`http://localhost:1337${imageUrl}`} alt="rover" />
-      </a>
+      <Link href={"/article/[id]"} as={`/article/${url}`}>
+        <a>
+          <img
+            src={`http://localhost:1337${imageUrl}`}
+            layout="fill"
+            alt="rover"
+          />
+        </a>
+      </Link>
       <div className={styles.cardRow}>
         <span className={styles.cardDate}>{getDateFormat()}</span>
         <span className={styles.cardSlash}>/</span>
