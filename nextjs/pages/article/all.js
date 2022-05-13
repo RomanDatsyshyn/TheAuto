@@ -31,7 +31,7 @@ export default function All({
 
   return (
     <MainLayout title={"Останні додані"} menuCategories={menuCategories}>
-      <ArticlesContainer articles={articles} />
+      <ArticlesContainer articles={articles} title={"Останні додані"} />
     </MainLayout>
   );
 }

@@ -6,7 +6,7 @@ import { ShowMoreButton } from "../ShowMoreButton";
 export function ArticlesContainer({ articles = [], title = "" }) {
   return (
     <div className={styles.center}>
-      <Heading titile={title} />
+      <Heading title={title} />
       <div className={styles.cardContainer}>
         {articles.data.map((article, index) => {
           const {
@@ -34,7 +34,7 @@ export function ArticlesContainer({ articles = [], title = "" }) {
           );
         })}
       </div>
-      {articles.length > 9 && <ShowMoreButton />}
+      {articles.data.length > 9 && <ShowMoreButton />}
     </div>
   );
 }

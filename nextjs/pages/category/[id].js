@@ -35,7 +35,7 @@ export default function Category({
 
   return (
     <MainLayout title={"Category"} menuCategories={menuCategories}>
-      <ArticlesContainer articles={articles} />
+      <ArticlesContainer articles={articles} title={"Category name"} />
     </MainLayout>
   );
 }
