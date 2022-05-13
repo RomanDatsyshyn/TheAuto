@@ -6,7 +6,7 @@ import styles from "./Header.module.css";
 const Search = dynamic(() => import("../Search"));
 const Nav = dynamic(() => import("../Nav"));
 
-export function Header() {
+export function Header({ menuCategories }) {
   const [isShowMenu, setIsShowMenu] = useState(false);
   const [isShowSearch, setIsShowSearch] = useState(false);
 
@@ -30,7 +30,7 @@ export function Header() {
         />
       </header>
       {isShowSearch && <Search />}
-      {isShowMenu && <Nav />}
+      {isShowMenu && <Nav menuCategories={menuCategories} />}
     </>
   );
 }

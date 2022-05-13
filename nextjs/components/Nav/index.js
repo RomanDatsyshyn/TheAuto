@@ -1,14 +1,20 @@
-export default function Nav() {
+import Link from "next/link";
+
+export default function Nav({ menuCategories }) {
   return (
     <nav>
-      <a href="#">їзда на механіці</a>
-      <a href="#">поради</a>
-      <a href="#">електроавтомобілі</a>
-      <a href="#">їзда на механіці</a>
-      <a href="#">їзда на механіці</a>
-      <a href="#">їзда на механіці</a>
-      <a href="#">їзда на механіці</a>
-      <a href="#">їзда на механіці</a>
+      {menuCategories.data.map((category, index) => {
+        const { name, identificator } = category.attributes;
+        return (
+          <Link
+            href={"/category/[id]"}
+            as={`/category/${identificator}`}
+            key={index}
+          >
+            <a>{name}</a>
+          </Link>
+        );
+      })}
     </nav>
   );
 }

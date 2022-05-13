@@ -5,16 +5,27 @@ import { LoadingLayout } from "../../components/LoadingLayout";
 import { useRouter } from "next/router";
 import styles from "./Article.module.css";
 
-export default function Article({ article: serverArticle }) {
+export default function Article({
+  article: serverArticle,
+  menuCategories: serverMenuCategories,
+}) {
   const [article, setArticle] = useState(serverArticle);
+  const [menuCategories, setMenuCategories] = useState(serverMenuCategories);
+
   const router = useRouter();
+  const { id } = router.query;
 
   useEffect(() => {
     async function load() {
-      const response = await fetch(
-        `http://localhost:1337/api/articles?filters[url][$eq]=${router.query.id}`
-      );
+      const url = `http://localhost:1337/api/articles?filters[url][$eq]=${id}`;
+      const response = await fetch(url);
       const data = await response.json();
+
+      const menuCategoriesUrl = `http://localhost:1337/api/categories?fields=name,identificator`;
+      const response2 = await fetch(menuCategoriesUrl);
+      const menuCategories = await response2.json();
+
+      setMenuCategories(menuCategories);
       setArticle(data);
     }
 
@@ -24,7 +35,10 @@ export default function Article({ article: serverArticle }) {
   if (!article) return <LoadingLayout title={"Loading"} />;
 
   return (
-    <MainLayout title={article.data[0].attributes.title}>
+    <MainLayout
+      title={article.data[0].attributes.title}
+      menuCategories={menuCategories}
+    >
       <Link href={"/"}>
         <a>Back to Home</a>
       </Link>
@@ -41,10 +55,13 @@ export default function Article({ article: serverArticle }) {
 Article.getInitialProps = async ({ query, req }) => {
   if (!req) return { article: null };
 
-  const response = await fetch(
-    `http://localhost:1337/api/articles?filters[url][$eq]=${query.id}`
-  );
+  const url = `http://localhost:1337/api/articles?filters[url][$eq]=${query.id}`;
+  const response = await fetch(url);
   const article = await response.json();
 
-  return { article };
+  const menuCategoriesUrl = `http://localhost:1337/api/categories?fields=name,identificator`;
+  const response2 = await fetch(menuCategoriesUrl);
+  const menuCategories = await response2.json();
+
+  return { article, menuCategories };
 };
