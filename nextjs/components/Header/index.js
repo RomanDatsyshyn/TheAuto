@@ -1,6 +1,10 @@
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import styles from "./Header.module.css";
+
+const Search = dynamic(() => import("../Search"));
+const Nav = dynamic(() => import("../Nav"));
 
 export function Header() {
   const [isShowMenu, setIsShowMenu] = useState(false);
@@ -25,30 +29,8 @@ export function Header() {
           onClick={() => setIsShowSearch(!isShowSearch)}
         />
       </header>
-      {isShowSearch && (
-        <div className={styles.searchContainer}>
-          <div className={styles.searchRow}>
-            <input type="text" />
-            <img
-              src="/search.svg"
-              className={styles.searchIcon}
-              alt="search icon"
-            />
-          </div>
-        </div>
-      )}
-      {isShowMenu && (
-        <nav>
-          <a href="#">їзда на механіці</a>
-          <a href="#">поради</a>
-          <a href="#">електроавтомобілі</a>
-          <a href="#">їзда на механіці</a>
-          <a href="#">їзда на механіці</a>
-          <a href="#">їзда на механіці</a>
-          <a href="#">їзда на механіці</a>
-          <a href="#">їзда на механіці</a>
-        </nav>
-      )}
+      {isShowSearch && <Search />}
+      {isShowMenu && <Nav />}
     </>
   );
 }
