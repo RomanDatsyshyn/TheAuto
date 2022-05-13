@@ -4,9 +4,7 @@ import { MainLayout } from "../../components/MainLayout";
 // Will read about getStaticProps for static about page
 
 export default function About() {
-  const linkClickHandler = () => {
-    Router.push("/");
-  };
+  const linkClickHandler = () => Router.push("/");
 
   return (
     <MainLayout>

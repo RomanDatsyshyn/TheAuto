@@ -9,9 +9,7 @@ export function MainLayout({ children, title = "" }) {
       <Head>
         <title>{title}</title>
       </Head>
-
       <Header />
-
       <main>{children}</main>
       <Footer />
     </div>

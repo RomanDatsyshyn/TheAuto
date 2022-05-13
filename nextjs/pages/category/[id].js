@@ -21,9 +21,7 @@ export default function Category({ articles: serverArticles }) {
     if (!serverArticles) load();
   }, []);
 
-  if (!articles) {
-    return <LoadingLayout title={"Category"} />;
-  }
+  if (!articles) return <LoadingLayout title={"Category"} />;
 
   return (
     <MainLayout title={"Category"}>
@@ -33,9 +31,8 @@ export default function Category({ articles: serverArticles }) {
 }
 
 Category.getInitialProps = async ({ query, req }) => {
-  if (!req) {
-    return { articles: null };
-  }
+  if (!req) return { articles: null };
+
   const response = await fetch(
     `http://localhost:1337/api/articles?fields=title,url,updatedAt&populate=preview,categories&filters[categories][identificator][$eq]=${query.id}&sort=id:desc`
   );
