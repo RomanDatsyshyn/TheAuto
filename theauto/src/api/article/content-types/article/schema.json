@@ -39,6 +39,11 @@
       "relation": "oneToMany",
       "target": "api::comment.comment",
       "mappedBy": "article"
+    },
+    "url": {
+      "type": "string",
+      "unique": true,
+      "required": true
     }
   }
 }

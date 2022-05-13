@@ -12,7 +12,7 @@ export default function Category({ articles: serverArticles }) {
   useEffect(() => {
     async function load() {
       const response = await fetch(
-        `http://localhost:1337/api/articles?fields=title,updatedAt&populate=preview,categories&filters[categories][identificator][$eq]=${router.query.id}&sort=id:desc`
+        `http://localhost:1337/api/articles?fields=title,url,updatedAt&populate=preview,categories&filters[categories][identificator][$eq]=${router.query.id}&sort=id:desc`
       );
       const data = await response.json();
       setArticles(data);
@@ -37,7 +37,7 @@ Category.getInitialProps = async ({ query, req }) => {
     return { articles: null };
   }
   const response = await fetch(
-    `http://localhost:1337/api/articles?fields=title,updatedAt&populate=preview,categories&filters[categories][identificator][$eq]=${query.id}&sort=id:desc`
+    `http://localhost:1337/api/articles?fields=title,url,updatedAt&populate=preview,categories&filters[categories][identificator][$eq]=${query.id}&sort=id:desc`
   );
   const articles = await response.json();
 

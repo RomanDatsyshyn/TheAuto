@@ -13,8 +13,17 @@ export function ArticlesSection({
       <Heading title={categoryName} />
       <div className={styles.cardContainer}>
         {articles.map((article, index) => {
-          const { title, updatedAt, preview, categories } = article.attributes;
-          const { url } = preview.data.attributes;
+          const {
+            title,
+            url: articleUrl,
+            updatedAt,
+            preview,
+            categories,
+          } = article.attributes;
+
+          console.log(articleUrl, "articleUrl");
+
+          const { url: imageUrl } = preview.data.attributes;
 
           const { data } = categories;
           const { identificator, name } = data[0].attributes;
@@ -25,7 +34,8 @@ export function ArticlesSection({
               updatedAt={updatedAt}
               categoryName={name}
               categoryId={identificator}
-              url={url}
+              imageUrl={imageUrl}
+              url={articleUrl}
               key={index}
             />
           );

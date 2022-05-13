@@ -18,9 +18,7 @@ export default function Home({ categories: serverCategories }) {
     if (!serverCategories) load();
   }, []);
 
-  if (!categories) {
-    return <LoadingLayout title={"Home"} />;
-  }
+  if (!categories) return <LoadingLayout title={"Home"} />;
 
   return (
     <MainLayout title={"Home"}>
@@ -29,8 +27,8 @@ export default function Home({ categories: serverCategories }) {
         return (
           <ArticlesSection
             categoryName={name}
-            articles={articles.data.slice(0, 3)}
             categoryId={identificator}
+            articles={articles.data.slice(0, 3)}
             key={index}
           />
         );
@@ -40,9 +38,7 @@ export default function Home({ categories: serverCategories }) {
 }
 
 Home.getInitialProps = async ({ req }) => {
-  if (!req) {
-    return { categories: null };
-  }
+  if (!req) return { categories: null };
 
   const response = await fetch(
     `http://localhost:1337/api/categories?fields=name,identificator&populate[articles][sort]=id:desc&populate[articles][populate][0]=preview,categories`

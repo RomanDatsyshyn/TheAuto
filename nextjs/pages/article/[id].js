@@ -12,7 +12,7 @@ export default function Article({ article: serverArticle }) {
   useEffect(() => {
     async function load() {
       const response = await fetch(
-        `http://localhost:1337/api/articles/${router.query.id}`
+        `http://localhost:1337/api/articles?filters[url][$eq]=${router.query.id}`
       );
       const data = await response.json();
       setArticle(data);
@@ -22,42 +22,31 @@ export default function Article({ article: serverArticle }) {
   }, []);
 
   if (!article) {
-    return <LoadingLayout title={article.data.attributes.title} />;
+    return <LoadingLayout title={article.data[0].attributes.title} />;
   }
 
   return (
-    <MainLayout title={article.data.attributes.title}>
+    <MainLayout title={article.data[0].attributes.title}>
       <Link href={"/"}>
         <a>Back to Home</a>
       </Link>
       <div className={styles.main}>
-        <h1>{article.data.attributes.title}</h1>
-        <div className={styles.content}>{article.data.attributes.content}</div>
+        <h1>{article.data[0].attributes.title}</h1>
+        <div className={styles.content}>
+          {article.data[0].attributes.content}
+        </div>
       </div>
     </MainLayout>
   );
 }
 
-// Відловлюємо і на фронті і на беці
 Article.getInitialProps = async ({ query, req }) => {
-  if (!req) {
-    return { article: null };
-  }
+  if (!req) return { article: null };
 
   const response = await fetch(
-    `http://localhost:1337/api/articles/${query.id}`
+    `http://localhost:1337/api/articles?filters[url][$eq]=${query.id}`
   );
   const article = await response.json();
 
   return { article };
 };
-
-// Відловлюємо тільки на беці
-// export async function getServerSideProps({ query, req }) {
-//   const response = await fetch(
-//     `http://localhost:1337/api/articles/${query.id}`
-//   );
-//   const article = await response.json();
-
-//   return { props: { article } };
-// }

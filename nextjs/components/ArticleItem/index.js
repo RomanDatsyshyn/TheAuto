@@ -4,10 +4,12 @@ import Link from "next/link";
 export function ArticleItem({
   title,
   categoryName,
+  imageUrl,
   url,
   updatedAt,
   categoryId,
 }) {
+  console.log(url, "url");
   const getDateFormat = () => {
     const date = new Date(updatedAt);
     const itemYear = date.getFullYear();
@@ -24,7 +26,7 @@ export function ArticleItem({
   return (
     <div className={styles.card}>
       <a href="#1">
-        <img src={`http://localhost:1337${url}`} alt="rover" />
+        <img src={`http://localhost:1337${imageUrl}`} alt="rover" />
       </a>
       <div className={styles.cardRow}>
         <span className={styles.cardDate}>{getDateFormat()}</span>
@@ -33,9 +35,11 @@ export function ArticleItem({
           <a className={styles.cardCategory}>{categoryName}</a>
         </Link>
       </div>
-      <a href="#3">
-        <h4>{title}</h4>
-      </a>
+      <Link href={"/article/[id]"} as={`/article/${url}`}>
+        <a>
+          <h4>{title}</h4>
+        </a>
+      </Link>
     </div>
   );
 }

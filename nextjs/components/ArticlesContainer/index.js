@@ -9,8 +9,15 @@ export function ArticlesContainer({ articles = [], title = "" }) {
       <Heading titile={title} />
       <div className={styles.cardContainer}>
         {articles.data.map((article, index) => {
-          const { title, updatedAt, preview, categories } = article.attributes;
-          const { url } = preview.data.attributes;
+          const {
+            title,
+            updatedAt,
+            preview,
+            categories,
+            url: articleUrl,
+          } = article.attributes;
+          console.log(article.attributes);
+          const { url: imageUrl } = preview.data.attributes;
 
           const { data } = categories;
           const { identificator, name } = data[0].attributes;
@@ -21,7 +28,8 @@ export function ArticlesContainer({ articles = [], title = "" }) {
               updatedAt={updatedAt}
               categoryName={name}
               categoryId={identificator}
-              url={url}
+              imageUrl={imageUrl}
+              url={articleUrl}
               key={index}
             />
           );
