@@ -5,7 +5,7 @@ import { ShowMoreButton } from "../ShowMoreButton";
 
 export function ArticlesContainer({ articles = [], title = "" }) {
   return (
-    <>
+    <div className={styles.center}>
       <Heading titile={title} />
       <div className={styles.cardContainer}>
         {articles.data.map((article, index) => {
@@ -16,7 +16,6 @@ export function ArticlesContainer({ articles = [], title = "" }) {
             categories,
             url: articleUrl,
           } = article.attributes;
-          console.log(article.attributes);
           const { url: imageUrl } = preview.data.attributes;
 
           const { data } = categories;
@@ -36,6 +35,6 @@ export function ArticlesContainer({ articles = [], title = "" }) {
         })}
       </div>
       {articles.length > 9 && <ShowMoreButton />}
-    </>
+    </div>
   );
 }

@@ -8,9 +8,8 @@ export default function Home({ categories: serverCategories }) {
 
   useEffect(() => {
     async function load() {
-      const response = await fetch(
-        `http://localhost:1337/api/categories?fields=name,identificator&populate[articles][sort]=id:desc&populate[articles][populate][0]=preview,categories`
-      );
+      const url = `http://localhost:1337/api/categories?fields=name,identificator&populate[articles][sort]=id:desc&populate[articles][populate][0]=preview,categories`;
+      const response = await fetch(url);
       const data = await response.json();
       setCategories(data);
     }

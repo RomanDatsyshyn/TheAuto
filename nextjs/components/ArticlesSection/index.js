@@ -21,8 +21,6 @@ export function ArticlesSection({
             categories,
           } = article.attributes;
 
-          console.log(articleUrl, "articleUrl");
-
           const { url: imageUrl } = preview.data.attributes;
 
           const { data } = categories;

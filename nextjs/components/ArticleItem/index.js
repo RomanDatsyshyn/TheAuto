@@ -9,7 +9,6 @@ export function ArticleItem({
   updatedAt,
   categoryId,
 }) {
-  console.log(url, "url");
   const getDateFormat = () => {
     const date = new Date(updatedAt);
     const itemYear = date.getFullYear();
