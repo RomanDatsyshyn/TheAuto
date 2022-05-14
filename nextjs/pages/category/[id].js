@@ -4,6 +4,7 @@ import { ArticlesContainer } from "../../components/ArticlesContainer";
 import { useRouter } from "next/router";
 import { LoadingLayout } from "../../components/LoadingLayout";
 import { NextPageButton } from "../../components/NextPageButton";
+import Error from "next/error";
 
 export default function Category({
   articles: serverArticles,
@@ -51,6 +52,7 @@ export default function Category({
   const nextPage = () => setPage(page + 1);
 
   if (!articles && !menuCategories) return <LoadingLayout title={"Category"} />;
+  if (articles.data.length === 0) return <Error statusCode={404} />;
 
   return (
     <MainLayout title={"Category"} menuCategories={menuCategories}>
