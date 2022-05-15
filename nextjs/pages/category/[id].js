@@ -39,7 +39,7 @@ export default function Category({
   const refetch = async () => {
     const url = `http://localhost:1337/api/articles?fields=title,url,updatedAt&populate=preview,categories&filters[categories][identificator][$eq]=${id}&sort=id:desc&pagination[page]=1&pagination[pageSize]=${
       page * 3
-    }${page * 3}`;
+    }`;
     const response = await fetch(url);
     const data = await response.json();
     setArticles(data);
