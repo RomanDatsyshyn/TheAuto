@@ -48,6 +48,10 @@
     "description": {
       "type": "text",
       "required": true
+    },
+    "views": {
+      "type": "biginteger",
+      "default": "0"
     }
   }
 }

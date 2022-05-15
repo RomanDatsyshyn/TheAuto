@@ -16,6 +16,31 @@ export default function Article({
   const router = useRouter();
   const { id } = router.query;
 
+  const oneMoreView = async (data) => {
+    const requestOptions = {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization:
+          "bearer 5c1cd2504220d835134bcbf4b2082a811b86057df1bebf85f53eedd608c463b06cadeb146b1566d865fbbeb4945ca2690855259164e0e865b8e4e61caa82a642ba8180a6e14531e314891520b7735ae0f7ed39ce7ef8d299282246ce27416c310132fa17b1b3767b00e3ec402a7be2234b429502005ea21da867f4e400681149 ",
+      },
+      body: JSON.stringify({
+        data: {
+          views:
+            data.data[0].attributes.views === null
+              ? 1
+              : parseInt(data.data[0].attributes.views) + 1,
+        },
+      }),
+    };
+
+    const response = await fetch(
+      `http://localhost:1337/api/articles/${data.data[0].id}`,
+      requestOptions
+    );
+    const menuCategories = await response.json();
+  };
+
   useEffect(() => {
     async function load() {
       const url = `http://localhost:1337/api/articles?filters[url][$eq]=${id}&populate[categories][populate]&populate[preview][populate]`;
@@ -28,6 +53,7 @@ export default function Article({
 
       setMenuCategories(menuCategories);
       setArticle(data);
+      oneMoreView(data);
     }
 
     if (!serverArticle) load();
