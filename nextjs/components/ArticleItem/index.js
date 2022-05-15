@@ -42,7 +42,7 @@ export function ArticleItem({
       </div>
       <Link href={"/article/[id]"} as={`/article/${url}`}>
         <a>
-          <h4>{title}</h4>
+          <h4>{title.charAt(0).toUpperCase() + title.slice(1)}</h4>
         </a>
       </Link>
     </article>

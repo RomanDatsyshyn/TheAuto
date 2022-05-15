@@ -1,7 +1,43 @@
 .logo {
   font-weight: 700;
 }
+.searchContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 26.15vw;
+  border-radius: 5px;
+  border: 2px solid var(--blue);
+  margin-top: -2vw;
+  margin-bottom: 4vw;
+}
+.searchContainer a {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  letter-spacing: 1px;
+  font-weight: 500;
+  color: var(--black);
+  width: 98%;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  cursor: pointer;
+}
+.searchContainer a:hover {
+  background-color: var(--grey);
+}
 @media (min-width: 992px) {
+  .searchContainer {
+    width: 26.15vw;
+    margin-bottom: 4vw;
+  }
+  .searchContainer a {
+    font-size: 1.5vw;
+  }
   .menuIcon {
     width: 2.5vw;
   }
@@ -13,6 +49,13 @@
   }
 }
 @media (min-width: 576px) and (max-width: 991.98px) {
+  .searchContainer {
+    width: 90.5vw;
+    margin-bottom: 4vw;
+  }
+  .searchContainer a {
+    font-size: 3.5vw;
+  }
   .menuIcon {
     width: 5vw;
   }
@@ -24,6 +67,13 @@
   }
 }
 @media (max-width: 575.98px) {
+  .searchContainer {
+    width: 91.5vw;
+    margin-bottom: 8vw;
+  }
+  .searchContainer a {
+    font-size: 5.5vw;
+  }
   .menuIcon {
     width: 10vw;
   }

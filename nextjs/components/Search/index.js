@@ -1,10 +1,10 @@
 import styles from "./Search.module.css";
 
-export default function Search() {
+export default function Search({ setSearchParam }) {
   return (
     <div className={styles.searchContainer}>
       <div className={styles.searchRow}>
-        <input type="text" />
+        <input type="text" onChange={(e) => setSearchParam(e.target.value)} />
         <img
           src="/search.svg"
           className={styles.searchIcon}

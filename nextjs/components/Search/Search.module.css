@@ -53,6 +53,7 @@
   .searchContainer {
     width: 91.5vw;
     height: 10vw;
+    margin-top: 2vw;
   }
   .searchRow input {
     width: 95%;
