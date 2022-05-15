@@ -47,7 +47,11 @@ export default function All({
   if (!articles && !menuCategories) return <LoadingLayout title={"All"} />;
 
   return (
-    <MainLayout title={"Останні додані"} menuCategories={menuCategories}>
+    <MainLayout
+      title={"Автомобільні статті"}
+      description={""}
+      menuCategories={menuCategories}
+    >
       <ArticlesContainer articles={articles} title={"Останні додані"} />
       {articles &&
         articles.data &&

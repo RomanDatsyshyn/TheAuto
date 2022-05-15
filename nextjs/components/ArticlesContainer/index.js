@@ -6,12 +6,12 @@ export function ArticlesContainer({ articles = [], title = "" }) {
   return (
     <section className={styles.center}>
       <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
-        <ol class="breadcrumb">
-          <Link href={"/"}>
-            <li>
+        <ol className="breadcrumb">
+          <li>
+            <Link href={"/"}>
               <a>Головна</a>
-            </li>
-          </Link>
+            </Link>
+          </li>
           <li>
             <span aria-current="location">{title}</span>
           </li>

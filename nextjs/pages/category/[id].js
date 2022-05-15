@@ -54,9 +54,16 @@ export default function Category({
   if (!articles && !menuCategories) return <LoadingLayout title={"Category"} />;
   if (articles.data.length === 0) return <Error statusCode={404} />;
 
+  const { name, description } =
+    articles.data[0].attributes.categories.data[0].attributes;
+
   return (
-    <MainLayout title={"Category"} menuCategories={menuCategories}>
-      <ArticlesContainer articles={articles} title={"Category name"} />
+    <MainLayout
+      title={name}
+      description={description}
+      menuCategories={menuCategories}
+    >
+      <ArticlesContainer articles={articles} title={name} />
       {articles &&
         articles.data &&
         articles.data.length > 1 &&

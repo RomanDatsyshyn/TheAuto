@@ -36,19 +36,25 @@ export default function Article({
   if (!article) return <LoadingLayout title={"Loading"} />;
   if (article.data[0] === undefined) return <Error statusCode={404} />;
 
-  const { title, content } = article.data[0].attributes;
+  const { title, content, description } = article.data[0].attributes;
 
   return (
-    <MainLayout title={title} menuCategories={menuCategories}>
+    <MainLayout
+      title={title}
+      description={description}
+      menuCategories={menuCategories}
+    >
       <nav aria-label="Breadcrumb">
-        <ol class="breadcrumb">
-          <Link href={"/"}>
-            <li>
-              <a>Головна</a>
-            </li>
-          </Link>
+        <ol className="breadcrumb">
           <li>
-            <a href="#">Pictures</a>
+            <Link href={"/"}>
+              <a>Головна</a>
+            </Link>
+          </li>
+          <li>
+            <Link href={"/"}>
+              <a>Pictures</a>
+            </Link>
           </li>
           <li>
             <span aria-current="location">{title}</span>
