@@ -4,7 +4,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head>{/* link rel style */}</Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

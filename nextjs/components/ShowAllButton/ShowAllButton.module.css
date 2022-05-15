@@ -2,7 +2,7 @@
   overflow: hidden;
   margin-bottom: 1.78vw;
   border-radius: 5px;
-  border: 2px solid var(--blue);
+  border: 2px solid var(--lightBlue);
   display: flex;
   justify-content: center;
   text-align: center;
@@ -10,7 +10,7 @@
   letter-spacing: 1px;
   text-transform: capitalize;
   font-weight: 500;
-  color: var(--blue);
+  color: var(--lightBlue);
   cursor: pointer;
 }
 .showMoreText:hover {

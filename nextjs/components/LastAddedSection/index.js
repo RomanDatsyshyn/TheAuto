@@ -5,7 +5,7 @@ import { ArticleItem } from "../ArticleItem";
 
 export function LastAddedSection({ articles = [] }) {
   return (
-    <div className={styles.center}>
+    <section className={styles.center}>
       <Heading title={"Останні додані"} />
       <div className={styles.cardContainer}>
         {articles &&
@@ -37,6 +37,6 @@ export function LastAddedSection({ articles = [] }) {
           })}
       </div>
       <ShowAllButton />
-    </div>
+    </section>
   );
 }

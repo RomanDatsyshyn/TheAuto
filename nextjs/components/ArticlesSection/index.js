@@ -9,7 +9,7 @@ export function ArticlesSection({
   categoryId,
 }) {
   return (
-    <div className={styles.center}>
+    <section className={styles.center}>
       <Heading title={categoryName} />
       <div className={styles.cardContainer}>
         {articles &&
@@ -41,6 +41,6 @@ export function ArticlesSection({
           })}
       </div>
       <ShowMoreButton id={categoryId} />
-    </div>
+    </section>
   );
 }

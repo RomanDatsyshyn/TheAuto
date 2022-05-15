@@ -3,7 +3,7 @@
   margin: 0 1vw;
 }
 .footerContainer a:hover {
-  opacity: 0.6;
+  color: var(--lightBlue);
 }
 .copyright {
   color: var(--blue);

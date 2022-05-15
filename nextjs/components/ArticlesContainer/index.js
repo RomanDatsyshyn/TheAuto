@@ -4,7 +4,7 @@ import { ArticleItem } from "../ArticleItem";
 
 export function ArticlesContainer({ articles = [], title = "" }) {
   return (
-    <div className={styles.center}>
+    <section className={styles.center}>
       <Heading title={title} />
       <div className={styles.cardContainer}>
         {articles &&
@@ -35,6 +35,6 @@ export function ArticlesContainer({ articles = [], title = "" }) {
             );
           })}
       </div>
-    </div>
+    </section>
   );
 }
