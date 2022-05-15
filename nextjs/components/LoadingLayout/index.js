@@ -12,6 +12,7 @@ export function LoadingLayout({
       <Head>
         <title>{title} | TheAuto</title>
         <meta name="description" content={description} />
+        <link rel="canonical" href={url} />
         <meta property="og:title" content={`${title} | TheAuto`} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />

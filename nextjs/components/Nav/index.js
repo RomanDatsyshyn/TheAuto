@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Nav({ menuCategories }) {
   return (
-    <nav>
+    <nav className="nav">
       <Link href={"/article/all"}>
         <a>Всі статті</a>
       </Link>

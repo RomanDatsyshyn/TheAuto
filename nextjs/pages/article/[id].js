@@ -42,19 +42,22 @@ export default function Article({
     <MainLayout title={title} menuCategories={menuCategories}>
       <div className={styles.main}>
         <h1>{title}</h1>
-        <ul class="breadcrumb" aria-label="Breadcrumb">
-          <Link href={"/"}>
+        <div>Дата публікації: 23.04.2022 / Останні зміни: 23.04.2022</div>
+        <nav aria-label="Breadcrumb">
+          <ul class="breadcrumb">
+            <Link href={"/"}>
+              <li>
+                <a>Головна</a>
+              </li>
+            </Link>
             <li>
-              <a>Головна</a>
+              <a href="#">Pictures</a>
             </li>
-          </Link>
-          <li>
-            <a href="#">Pictures</a>
-          </li>
-          <li>
-            <span aria-current="page">{title}</span>
-          </li>
-        </ul>
+            <li>
+              <span aria-current="location">{title}</span>
+            </li>
+          </ul>
+        </nav>
         <div className={styles.content}>{content}</div>
       </div>
     </MainLayout>

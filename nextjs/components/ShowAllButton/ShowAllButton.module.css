@@ -2,7 +2,7 @@
   overflow: hidden;
   margin-bottom: 1.78vw;
   border-radius: 5px;
-  border: 2px solid var(--lightBlue);
+  border: 2px solid var(--blue);
   display: flex;
   justify-content: center;
   text-align: center;
@@ -10,11 +10,12 @@
   letter-spacing: 1px;
   text-transform: capitalize;
   font-weight: 500;
-  color: var(--lightBlue);
+  color: var(--blue);
   cursor: pointer;
 }
 .showMoreText:hover {
-  opacity: 0.6;
+  color: var(--lightBlue);
+  border: 2px solid var(--lightBlue);
 }
 .showMore {
   margin-bottom: 1.22vw;
