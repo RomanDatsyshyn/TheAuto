@@ -9,9 +9,29 @@
   flex-direction: column;
   justify-content: center;
 }
+.breadcrumb {
+  align-self: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1vw;
+}
 @media (min-width: 992px) {
   .cardContainer {
     min-width: 88vw;
     max-width: 88vw;
+  }
+  .breadcrumb {
+    margin-left: 2.5vw;
+  }
+}
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .breadcrumb {
+    margin-left: 5.5vw;
+  }
+}
+@media (max-width: 575.98px) {
+  .breadcrumb {
+    margin-left: 5.5vw;
+    font-size: 15.6px;
   }
 }

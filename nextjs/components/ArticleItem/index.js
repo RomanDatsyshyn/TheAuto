@@ -23,7 +23,7 @@ export function ArticleItem({
   };
 
   return (
-    <div className={styles.card}>
+    <article className={styles.card}>
       <Link href={"/article/[id]"} as={`/article/${url}`}>
         <a>
           <img
@@ -45,6 +45,6 @@ export function ArticleItem({
           <h4>{title}</h4>
         </a>
       </Link>
-    </div>
+    </article>
   );
 }

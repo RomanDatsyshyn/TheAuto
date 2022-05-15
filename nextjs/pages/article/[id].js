@@ -40,25 +40,38 @@ export default function Article({
 
   return (
     <MainLayout title={title} menuCategories={menuCategories}>
-      <div className={styles.main}>
-        <h1>{title}</h1>
-        <div>Дата публікації: 23.04.2022 / Останні зміни: 23.04.2022</div>
-        <nav aria-label="Breadcrumb">
-          <ul class="breadcrumb">
-            <Link href={"/"}>
-              <li>
-                <a>Головна</a>
-              </li>
-            </Link>
+      <nav aria-label="Breadcrumb">
+        <ol class="breadcrumb">
+          <Link href={"/"}>
             <li>
-              <a href="#">Pictures</a>
+              <a>Головна</a>
             </li>
-            <li>
-              <span aria-current="location">{title}</span>
-            </li>
-          </ul>
-        </nav>
-        <div className={styles.content}>{content}</div>
+          </Link>
+          <li>
+            <a href="#">Pictures</a>
+          </li>
+          <li>
+            <span aria-current="location">{title}</span>
+          </li>
+        </ol>
+      </nav>
+      <div className={styles.center}>
+        <div className={styles.main}>
+          <h1>{title}</h1>
+          <div className={styles.date}>
+            Дата публікації:{" "}
+            <time itemprop="datePublished" datetime="23.04.2022">
+              23.04.2022
+            </time>
+            {1 > 0 && " / Останні зміни: "}
+            {1 > 0 && (
+              <time itemprop="dateModified" datetime="23.04.2022">
+                23.04.2022
+              </time>
+            )}
+          </div>
+          <div className={styles.content}>{content}</div>
+        </div>
       </div>
     </MainLayout>
   );

@@ -16,7 +16,7 @@ export function LoadingLayout({
         <meta property="og:title" content={`${title} | TheAuto`} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
-        <meta property="og:image" content={imageUrl} />
+        {imageUrl.length && <meta property="og:image" content={imageUrl} />}
       </Head>
       <img src="/loader.svg" alt="loader" />
     </div>

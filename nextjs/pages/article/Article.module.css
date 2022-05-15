@@ -5,6 +5,18 @@
   color: var(--simpleTextColor);
   margin-bottom: 1.78vw;
 }
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.date {
+  opacity: 0.6;
+  color: var(--simpleTextColor);
+  font-size: 18px;
+  margin-bottom: 2vw;
+}
 @media (min-width: 992px) {
   .main {
     width: 51vw;

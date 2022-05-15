@@ -1,11 +1,22 @@
+import Link from "next/link";
 import styles from "./ArticlesContainer.module.css";
-import { Heading } from "../Heading";
 import { ArticleItem } from "../ArticleItem";
 
 export function ArticlesContainer({ articles = [], title = "" }) {
   return (
     <section className={styles.center}>
-      <Heading title={title} />
+      <nav aria-label="Breadcrumb" className={styles.breadcrumb}>
+        <ol class="breadcrumb">
+          <Link href={"/"}>
+            <li>
+              <a>Головна</a>
+            </li>
+          </Link>
+          <li>
+            <span aria-current="location">{title}</span>
+          </li>
+        </ol>
+      </nav>
       <div className={styles.cardContainer}>
         {articles &&
           articles.data &&

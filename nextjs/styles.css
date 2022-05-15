@@ -70,24 +70,25 @@ h1 {
   margin: 0 0 2vw 0;
   font-size: 36px;
 }
-ul.breadcrumb {
+ol.breadcrumb {
   padding: 0;
   list-style: none;
+  flex-wrap: wrap;
 }
-ul.breadcrumb li {
+ol.breadcrumb li {
   display: inline;
   font-size: 18px;
 }
-ul.breadcrumb li + li:before {
+ol.breadcrumb li + li:before {
   padding: 8px;
   color: var(--black);
   content: "/\00a0";
 }
-ul.breadcrumb li a {
+ol.breadcrumb li a {
   color: var(--lightBlue);
   text-decoration: none;
 }
-ul.breadcrumb li a:hover {
+ol.breadcrumb li a:hover {
   text-decoration: underline;
 }
 @media (min-width: 992px) {
@@ -104,6 +105,9 @@ ul.breadcrumb li a:hover {
     height: 5vw;
     font-size: 18px;
   }
+  ol.breadcrumb {
+    width: 51vw;
+  }
 }
 @media (min-width: 576px) and (max-width: 991.98px) {
   header {
@@ -117,6 +121,9 @@ ul.breadcrumb li a:hover {
     width: 43vw;
     height: 5vw;
     font-size: 19.2px;
+  }
+  ol.breadcrumb {
+    width: 88vw;
   }
 }
 @media (max-width: 575.98px) {
@@ -132,5 +139,8 @@ ul.breadcrumb li a:hover {
     width: 100%;
     height: 10vw;
     font-size: 21.6px;
+  }
+  ol.breadcrumb {
+    width: 90vw;
   }
 }

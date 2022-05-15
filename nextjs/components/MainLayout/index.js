@@ -22,7 +22,7 @@ export function MainLayout({
         <meta property="og:title" content={`${title} | TheAuto`} />
         <meta property="og:description" content={description} />
         <meta property="og:url" content={url} />
-        <meta property="og:image" content={imageUrl} />
+        {imageUrl.length && <meta property="og:image" content={imageUrl} />}
         {published_time.length && (
           <meta property="article:published_time" content={published_time} />
         )}
