@@ -18,7 +18,7 @@ export default function Article({
 
   useEffect(() => {
     async function load() {
-      const url = `http://localhost:1337/api/articles?filters[url][$eq]=${id}`;
+      const url = `http://localhost:1337/api/articles?filters[url][$eq]=${id}&populate[categories][populate]`;
       const response = await fetch(url);
       const data = await response.json();
 
@@ -36,13 +36,31 @@ export default function Article({
   if (!article) return <LoadingLayout title={"Loading"} />;
   if (article.data[0] === undefined) return <Error statusCode={404} />;
 
-  const { title, content, description } = article.data[0].attributes;
+  const { title, content, description, publishedAt, updatedAt } =
+    article.data[0].attributes;
+  const { name, identificator } =
+    article.data[0].attributes.categories.data[0].attributes;
+
+  const getDateFormat = (d) => {
+    const date = new Date(d);
+    const itemYear = date.getFullYear();
+    const itemMonth = date.getMonth() + 1;
+    const itemDay = date.getDate();
+
+    const formatedDate = `${itemDay < 10 ? "0" + itemDay : itemDay}.${
+      itemMonth < 10 ? "0" + itemMonth : itemMonth
+    }.${itemYear}`;
+
+    return formatedDate;
+  };
 
   return (
     <MainLayout
       title={title}
       description={description}
       menuCategories={menuCategories}
+      published_time={publishedAt}
+      modified_time={updatedAt}
     >
       <nav aria-label="Breadcrumb">
         <ol className="breadcrumb">
@@ -52,8 +70,8 @@ export default function Article({
             </Link>
           </li>
           <li>
-            <Link href={"/"}>
-              <a>Pictures</a>
+            <Link href={"/category/[id]"} as={`/category/${identificator}`}>
+              <a>{name}</a>
             </Link>
           </li>
           <li>
@@ -66,13 +84,13 @@ export default function Article({
           <h1>{title}</h1>
           <div className={styles.date}>
             Дата публікації:{" "}
-            <time itemprop="datePublished" datetime="23.04.2022">
-              23.04.2022
+            <time itemProp="datePublished" dateTime={publishedAt}>
+              {getDateFormat(publishedAt)}
             </time>
-            {1 > 0 && " / Останні зміни: "}
-            {1 > 0 && (
-              <time itemprop="dateModified" datetime="23.04.2022">
-                23.04.2022
+            {publishedAt !== updatedAt && " / Останні зміни: "}
+            {publishedAt !== updatedAt && (
+              <time itemProp="dateModified" dateTime={updatedAt}>
+                {getDateFormat(updatedAt)}
               </time>
             )}
           </div>
@@ -86,7 +104,7 @@ export default function Article({
 Article.getInitialProps = async ({ query, req }) => {
   if (!req) return { article: null };
 
-  const url = `http://localhost:1337/api/articles?filters[url][$eq]=${query.id}`;
+  const url = `http://localhost:1337/api/articles?filters[url][$eq]=${query.id}&populate[categories][populate]`;
   const response = await fetch(url);
   const article = await response.json();
 

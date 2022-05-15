@@ -49,7 +49,9 @@ export default function All({
   return (
     <MainLayout
       title={"Автомобільні статті"}
-      description={""}
+      description={
+        "Саме тут ви зможете знайти користі автомобільні статті на різні теми, а також рейтинти автомобілів, порівняння та поради для кожного автомобіліста."
+      }
       menuCategories={menuCategories}
     >
       <ArticlesContainer articles={articles} title={"Останні додані"} />
