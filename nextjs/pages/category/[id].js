@@ -62,6 +62,7 @@ export default function Category({
       title={name}
       description={description}
       menuCategories={menuCategories}
+      url={`http://localhost:3001/category/${id}`}
     >
       <ArticlesContainer articles={articles} title={name} />
       {articles &&

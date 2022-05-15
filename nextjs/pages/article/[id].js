@@ -18,7 +18,7 @@ export default function Article({
 
   useEffect(() => {
     async function load() {
-      const url = `http://localhost:1337/api/articles?filters[url][$eq]=${id}&populate[categories][populate]`;
+      const url = `http://localhost:1337/api/articles?filters[url][$eq]=${id}&populate[categories][populate]&populate[preview][populate]`;
       const response = await fetch(url);
       const data = await response.json();
 
@@ -36,10 +36,11 @@ export default function Article({
   if (!article) return <LoadingLayout title={"Loading"} />;
   if (article.data[0] === undefined) return <Error statusCode={404} />;
 
-  const { title, content, description, publishedAt, updatedAt } =
+  const { title, content, description, publishedAt, updatedAt, preview } =
     article.data[0].attributes;
   const { name, identificator } =
     article.data[0].attributes.categories.data[0].attributes;
+  const { url: imageUrl } = preview.data.attributes;
 
   const getDateFormat = (d) => {
     const date = new Date(d);
@@ -61,6 +62,8 @@ export default function Article({
       menuCategories={menuCategories}
       published_time={publishedAt}
       modified_time={updatedAt}
+      url={`http://localhost:3001/article/${id}`}
+      imageUrl={`http://localhost:1337${imageUrl}`}
     >
       <nav aria-label="Breadcrumb">
         <ol className="breadcrumb">
@@ -104,7 +107,7 @@ export default function Article({
 Article.getInitialProps = async ({ query, req }) => {
   if (!req) return { article: null };
 
-  const url = `http://localhost:1337/api/articles?filters[url][$eq]=${query.id}&populate[categories][populate]`;
+  const url = `http://localhost:1337/api/articles?filters[url][$eq]=${query.id}&populate[categories][populate]&populate[preview][populate]`;
   const response = await fetch(url);
   const article = await response.json();
 

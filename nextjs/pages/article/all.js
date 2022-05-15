@@ -53,6 +53,7 @@ export default function All({
         "Саме тут ви зможете знайти користі автомобільні статті на різні теми, а також рейтинти автомобілів, порівняння та поради для кожного автомобіліста."
       }
       menuCategories={menuCategories}
+      url={"http://localhost:3001/article/all"}
     >
       <ArticlesContainer articles={articles} title={"Останні додані"} />
       {articles &&

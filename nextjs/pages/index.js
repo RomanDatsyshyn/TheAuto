@@ -45,6 +45,7 @@ export default function Home({
         "Корисні статті про автомобілі, рейтинти авто, порівняння та поради для кожного автомобіліста. Все про електромобілі та авто з ДВЗ читайте на сайті TheAuto."
       }
       menuCategories={menuCategories}
+      url={"http://localhost:3001/"}
     >
       <LastAddedSection articles={lastAdded.data.slice(0, 3)} />
       {categories &&
